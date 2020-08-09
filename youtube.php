@@ -1,7 +1,7 @@
 <?php
  /**
  * mughu.me
- * https://github.com/mughu94/YoutubeScraperCurlPhp
+ * https://github.com/mughu94/YoutubeScraperPhp
  */
 
 if(isset($_POST['submit'])) 
