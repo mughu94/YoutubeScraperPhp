@@ -1,7 +1,7 @@
 # YoutubeScraperPhp
 Youtube Scraper Using Php without Google Youtube API .
 
-#### Sample Result
+#### Sample First Result for Keyword "Bismillah"
 
 * [videoId] => cHqfk5lMw-E
 * [url] => https://www.youtube.com/watch?v=cHqfk5lMw-E
