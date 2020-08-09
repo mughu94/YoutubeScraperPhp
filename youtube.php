@@ -1,10 +1,18 @@
 <?php
  /**
  * mughu.me
- * https://github.com/mughu94/YoutubeScraperPhp
+ * https://github.com/mughu94/YoutubeScraperCurlPhp
  */
 
-$url = 'https://www.youtube.com/results?q=bismillah';
+if(isset($_POST['submit'])) 
+{ 
+  
+$kw = $_POST['keyword'];
+$kw = str_replace(array(' ','-'),'+',$kw);
+
+$url = "https://www.youtube.com/results?q=$kw";
+  
+  echo "Result for $url";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -54,3 +62,40 @@ if (!empty($results)) {
 	print_r('<pre>');
 	print_r($videoku);
 }
+}else{
+?>
+
+<html>
+
+<head>
+  <title>Youtube Scraper</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+</head>
+
+<body>
+
+  <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-position-small uk-position-top-center">
+
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+
+
+      <div class="uk-margin">
+        <div class="uk-inline">
+          <span class="uk-form-icon" uk-icon="icon: youtube"></span>
+          <input class="uk-input" type="text" name="keyword" placeholder="Apa yang anda cari?">
+        </div>
+      </div>
+
+      <input type="submit" class="uk-button uk-button-danger uk-position-small uk-position-bottom-center" name="submit" value="Cari"><br>
+    </form>
+
+  </div>
+
+</body>
+</html>
+
+<?php
+  }
+?>
